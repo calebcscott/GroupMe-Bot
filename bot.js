@@ -19,7 +19,7 @@ const postText = async (url, id) => {
     console.log(json)
 
 }catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 
 };
