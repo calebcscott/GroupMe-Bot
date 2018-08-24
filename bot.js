@@ -25,7 +25,8 @@ const postText = async (url, id) => {
 };
 
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]), botRegex = /^\/coolguy$/;
+  var request = JSON.parse(this.req.chunks[0]),
+  botRegex = /^\/cool guy$/;
 
   if(request.text && botRegex.test(request.text)) {
     postText(url, id);
