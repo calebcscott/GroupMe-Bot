@@ -2,7 +2,7 @@ var http = require('http');
 var director = require('director');
 var bot = require('./bot.js');
 
-router = new director.http.router({
+router = new director.http.Router({
   '/' : {
     post: bot.respond,
     get: ping
