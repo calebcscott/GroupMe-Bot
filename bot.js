@@ -29,7 +29,7 @@ function respond() {
   botRegex = /^\/cool guy$/;
 
   if(request.text && botRegex.test(request.text)) {
-    postText(url, id);
+    postText(url, botID);
   } else {
     console.log("don't care");
   }
