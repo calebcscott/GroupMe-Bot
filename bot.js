@@ -24,12 +24,19 @@ const postText = async (url, id) => {
 
 };
 
+const logIncoming = incoming => {
+  console.log(incoming);
+};
+
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
   botRegex = /^\/cool guy$/;
 
+  logIncoming(request);
+
   if(request.text && botRegex.test(request.text)) {
-    postText(url, botID);
+    //postText(url, botID);
+    logIncoming("sending response");
   } else {
     console.log("don't care");
   }
