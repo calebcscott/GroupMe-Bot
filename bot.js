@@ -12,6 +12,11 @@ const availableCommands = [
   "hello"
 ]
 
+const listCommands = async() => {
+  let message = "Possible commands:\n" + availableCommands.join("\n");
+  postMessage(url, botID, message);
+}
+
 const postMessage = async (url, id, message) => {
   //setting up data block for id, and message to give to server
   data = {
@@ -69,6 +74,7 @@ const genMessage =  async (command, user) => {
     message = `Hello, ${user}!`;
   } else {
     message = `Command \"${command}\" not found, sorry ${user}`;
+    listCommands();
   }
 
   return message;
