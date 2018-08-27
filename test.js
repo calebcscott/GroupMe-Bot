@@ -75,7 +75,7 @@ const genMessage =  async (command, user) => {
 }
 
 const respondFirst = () => {
-  let request = JSON.parse(this.req.chunks[0]);
+  var request = JSON.parse(this.req.chunks[0]);
   if (request.sender_type === 'bot') {
     console.log("Ignoring bot message");
   } else {
