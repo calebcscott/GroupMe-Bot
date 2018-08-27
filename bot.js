@@ -26,7 +26,7 @@ const botInfo = {
 
 
 const listCommands = async() => {
-  let message = "Possible commands:\n" + JSON.stringify(botInformation);
+  let message = "Possible commands:\n" + JSON.stringify(botInfo);
   postMessage(url, botID, message);
 }
 
@@ -61,10 +61,13 @@ const postMessage = async (url, id, message) => {
 const checkIfCommand = async incoming => {
   //determine if user text is viable command and if
   //command is in availableCommands list
+  console.log("entering command function");
   try {
     let message = incoming.toLowerCase();
+    console.log("modifying command to lowercase");
     if (message.charAt(0) === '/') {
       let command = message.substr(1, message.length);
+      console.log(`determined ${command} checking if in botInfo list`);
       if (comamnd in botInfo.commands) {
         console.log(`User issued \"${command}\" command`);
         return command;
