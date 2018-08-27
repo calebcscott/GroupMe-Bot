@@ -58,7 +58,7 @@ const postMessage = async (url, id, message) => {
 }
 
 
-const checkIfCommand = async incoming => {
+const checkIfCommand = incoming => {
   //determine if user text is viable command and if
   //command is in availableCommands list
   console.log("entering command function");
@@ -120,7 +120,7 @@ const respond = async (serverMessage) => {
 
     try {
       //cannot run postMessage funciton until all async functions finish
-      let command = await checkIfCommand(text);
+      let command = checkIfCommand(text);
 
       //if block to handle if command function successful or not
       //if user entered command incorrectly just pass their input to genMessage function
