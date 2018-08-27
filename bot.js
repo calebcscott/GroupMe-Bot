@@ -8,7 +8,7 @@ const botID = process.env.BOT_ID;
 
 
 //list of available commands that can be handled
-const botInformation = {
+const botInfo = {
   commands : {
     "hello" : {
       info : "prints greeting to user",
@@ -65,7 +65,7 @@ const checkIfCommand = async incoming => {
     let message = incoming.toLowerCase();
     if (message.charAt(0) === '/') {
       let command = message.substr(1, message.length);
-      if (comamnd in botInformation.commands) {
+      if (comamnd in botInfo.commands) {
         console.log(`User issued \"${command}\" command`);
         return command;
       } else {
@@ -84,7 +84,7 @@ const genMessage =  async (command, user) => {
   //reads command, then returns message to be used for postMessage funciton
   let message;
   if (command === 'hello') {
-    message = `${botInformation.commands[command].message} ${user}`;
+    message = `${botInfo.commands[command].message} ${user}`;
   } else if (command === 'help') {
     listCommands();
   } else {
