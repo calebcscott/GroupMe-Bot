@@ -1,8 +1,5 @@
 const fetch = require("node-fetch");
 
-const url = "https://api.groupme.com/v3/bots/post"
-var botID = process.env.BOT_ID;
-
 const postText = async (url, id) => {
   try {
     data = {
@@ -19,7 +16,7 @@ const postText = async (url, id) => {
     console.log(json)
 
 }catch (error) {
-    //console.log(error);
+    logIncoming(error);
   }
 
 };
@@ -29,6 +26,7 @@ const logIncoming = incoming => {
 };
 
 function respond() {
+  logIncoming("Message recieved\nDetermining if bot should responsd");
   var request = JSON.parse(this.req.chunks[0]),
   botRegex = /^\/cool guy$/;
 
@@ -36,7 +34,7 @@ function respond() {
 
   if(request.text && botRegex.test(request.text)) {
     //postText(url, botID);
-    logIncoming("sending response");
+    logIncoming("Seinding Response");
   } else {
     console.log("don't care");
   }
@@ -44,3 +42,4 @@ function respond() {
 }
 
 exports.respond = respond;
+exports.url = url;

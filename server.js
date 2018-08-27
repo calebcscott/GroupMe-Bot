@@ -1,6 +1,7 @@
 var http = require('http');
 var director = require('director');
-var bot = require('./bot.js');
+const bot = require('./test.js');
+
 
 router = new director.http.Router({
   '/' : {
@@ -9,6 +10,7 @@ router = new director.http.Router({
   }
 });
 
+console.log("Creating Server");
 server = http.createServer(function(req, res) {
   req.chunks = [];
   req.on('data', function(chunk) {
@@ -21,7 +23,9 @@ server = http.createServer(function(req, res) {
   });
 });
 
+
 port = Number(process.env.PORT || 5000);
+console.log(`Setting up server on port ${port}`);
 server.listen(port);
 
 function ping() {
