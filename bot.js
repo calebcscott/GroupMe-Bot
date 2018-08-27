@@ -26,7 +26,11 @@ const botInfo = {
 
 
 const listCommands = async() => {
-  let message = "Possible commands:\n" + Object.keys(botInfo.commands).join("\n");
+  // let message = "Possible commands:\n" + Object.keys(botInfo.commands).join("\n");
+  let message;
+  for each (command in botInfo.commands) {
+    message += `${command} - ${botInfo.commands[command].info}\n`
+  }
   postMessage(url, botID, message);
 }
 
