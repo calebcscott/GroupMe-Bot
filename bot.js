@@ -62,23 +62,18 @@ const checkIfCommand = incoming => {
   //determine if user text is viable command and if
   //command is in availableCommands list
   console.log("entering command function");
-  try {
     let message = incoming.toLowerCase();
-    console.log("modifying command to lowercase");
-    if (message.charAt(0) === '/') {
-      let command = message.substr(1, message.length);
-      console.log(`determined ${command} checking if in botInfo list`);
-      if (comamnd in botInfo.commands) {
-        console.log(`User issued \"${command}\" command`);
-        return command;
-      } else {
-        console.log(`Command ${command} unavailable`);
-        return false;
-      }
+  console.log("modifying command to lowercase");
+  if (message.charAt(0) === '/') {
+    let command = message.substr(1, message.length);
+    console.log(`determined ${command} checking if in botInfo list`);
+    if (comamnd in botInfo.commands) {
+      console.log(`User issued \"${command}\" command`);
+      return command;
+    } else {
+      console.log(`Command ${command} unavailable`);
+      return false;
     }
-  } catch (error) {
-    console.log("Must provide string to function");
-    return -1;
   }
 }
 
