@@ -30,7 +30,7 @@ const listCommands = async() => {
   // let message = "Possible commands:\n" + Object.keys(botInfo.commands).join("\n");
   let message = "";
   for (let command in botInfo.commands) {
-    message += `${command} - ${botInfo.commands[command].info}\n
+    message += `${command} - ${botInfo.commands[command].info}
     \tusage \"${botInfo.commands[command].usage}\"\n
     `
   }
