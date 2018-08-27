@@ -73,7 +73,8 @@ const checkIfCommand = async incoming => {
     let message = incoming.toLowerCase();
     console.log("modifying command to lowercase");
     if (message.charAt(0) === '/') {
-      let command = message.substr(1, message.length);
+      let end = (message.indexOf(' ') > 0) ? message.indexOf(' ') : message.length;
+      let command = message.substr(1, end);
       console.log(`determined ${command} checking if in botInfo list`);
       if (command in botInfo.commands) {
         console.log(`User issued \"${command}\" command`);
@@ -99,8 +100,8 @@ const genMessage =  async (command, user) => {
   } else if (command === 'help') {
     listCommands();
   } else {
-    message = `Command \"${command}\" not found, sorry ${user}`;
-    listCommands();
+    message = `Command \"${command}\" not found, sorry ${user}
+    try: /help`
   }
 
   return message;
