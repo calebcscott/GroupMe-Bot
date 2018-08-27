@@ -111,4 +111,4 @@ const respond = async (serverMessage) => {
   }
 }
 
-exports.respond = respondFirst;
+exports.respondFirst = respondFirst;
