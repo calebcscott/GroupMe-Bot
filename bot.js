@@ -9,7 +9,8 @@ const botID = process.env.BOT_ID;
 
 //list of available commands that can be handled
 const availableCommands = [
-  "hello"
+  "hello",
+  "help"
 ]
 
 const listCommands = async() => {
@@ -72,6 +73,8 @@ const genMessage =  async (command, user) => {
   let message;
   if (command === 'hello') {
     message = `Hello, ${user}!`;
+  } else if (command === 'help') {
+    listCommands();
   } else {
     message = `Command \"${command}\" not found, sorry ${user}`;
     listCommands();
