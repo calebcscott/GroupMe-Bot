@@ -26,7 +26,7 @@ const botInfo = {
 
 
 const listCommands = async() => {
-  let message = "Possible commands:\n" + JSON.stringify(botInfo);
+  let message = "Possible commands:\n" + Object.keys(botInfo.commands).join("\n");
   postMessage(url, botID, message);
 }
 
