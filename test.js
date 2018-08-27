@@ -109,6 +109,6 @@ const respond = async (serverMessage) => {
       console.log(error);
     }
   }
-}
+
 
 exports.respondFirst = respondFirst;
