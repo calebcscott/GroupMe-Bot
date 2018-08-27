@@ -5,7 +5,7 @@ const bot = require('./test.js');
 
 router = new director.http.Router({
   '/' : {
-    post: bot.respond,
+    post: bot.respondFirst,
     get: ping
   }
 });

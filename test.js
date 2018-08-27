@@ -74,14 +74,19 @@ const genMessage =  async (command, user) => {
   return message;
 }
 
-
-const respond = async () => {
+const respondFirst = () => {
   let request = JSON.parse(this.req.chunks[0]);
   if (request.sender_type === 'bot') {
     console.log("Ignoring bot message");
   } else {
-    let user = request.name;
-    let text = request.text;
+    respond(request);
+  }
+}
+
+
+const respond = async (serverMessage) => {
+    let user = serverMessage.name;
+    let text = serverMessage.text;
     console.log(`User: ${user}`);
     console.log(`Message: ${text}`);
 
@@ -106,4 +111,4 @@ const respond = async () => {
   }
 }
 
-exports.respond = respond;
+exports.respond = respondFirst;
