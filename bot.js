@@ -16,7 +16,8 @@ const botInfo = {
       usage : "/hello"
     },
     "help" : {
-      info : "prints help page such as this"
+      info : "prints help page such as this",
+      usage : "/help"
     }
 
   }
@@ -27,9 +28,11 @@ const botInfo = {
 
 const listCommands = async() => {
   // let message = "Possible commands:\n" + Object.keys(botInfo.commands).join("\n");
-  let message;
+  let message = "";
   for (let command in botInfo.commands) {
-    message += `${command} - ${botInfo.commands[command].info}\n`
+    message += `${command} - ${botInfo.commands[command].info}\n
+    \tusage \"${botInfo.commands[command].usage}\"\n
+    `
   }
   postMessage(url, botID, message);
 }
