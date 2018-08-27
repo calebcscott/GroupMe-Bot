@@ -1,6 +1,6 @@
-var http = require('http');
-var director = require('director');
-const bot = require('./test.js');
+const http = require('http');
+const director = require('director');
+const bot = require('./bot.js');
 
 
 router = new director.http.Router({
